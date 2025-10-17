@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System</title>
+<style>
+/* ===== Inline CSS Styling ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  background: #f4f7fb;
+}
+header {
+  background: linear-gradient(90deg, #2b5876, #4e4376);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+nav a:hover {
+  background: white;
+  color: #4e4376;
+}
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h2 {
+  color: #4e4376;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+input, button {
+  padding: 10px;
+  margin: 8px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+button {
+  background: linear-gradient(90deg, #4e4376, #2b5876);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #2b5876;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+th {
+  background: #4e4376;
+  color: white;
+}
+footer {
+  text-align: center;
+  background: #2b5876;
+  color: white;
+  padding: 10px 0;
+  margin-top: 40px;
+  border-radius: 0 0 10px 10px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Library Management System</h1>
+  <nav>
+    <a href="#add">Add Book</a>
+    <a href="#delete">Delete Book</a>
+    <a href="#borrow">Borrow Book</a>
+    <a href="#list">View All Books</a>
+  </nav>
+</header>
+
+<section id="add">
+  <h2>Add Book</h2>
+  <input type="text" id="bookTitle" placeholder="Enter Book Title">
+  <input type="text" id="bookAuthor" placeholder="Enter Author Name">
+  <button onclick="addBook()">Add Book</button>
+</section>
+
+<section id="delete">
+  <h2>Delete Book</h2>
+  <input type="text" id="deleteTitle" placeholder="Enter Book Title to Delete">
+  <button onclick="deleteBook()">Delete</button>
+</section>
+
+<section id="borrow">
+  <h2>Borrow Book</h2>
+  <input type="text" id="borrowTitle" placeholder="Enter Book Title to Borrow">
+  <button onclick="borrowBook()">Borrow</button>
+</section>
+
+<section id="list">
+  <h2>Book List</h2>
+  <input type="text" id="search" placeholder="Search Books..." onkeyup="searchBook()">
+  <table id="bookTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<footer>
+  <p>© 2025 Library Management System | Designed by Shubu</p>
+</footer>
+
+<script>
+/* ===== JavaScript Functionality ===== */
+let books = [];
+
+function addBook() {
+  const title = document.getElementById("bookTitle").value.trim();
+  const author = document.getElementById("bookAuthor").value.trim();
+  if (title === "" || author === "") {
+    alert("Please fill out both fields!");
+    return;
+  }
+  books.push({ title, author, status: "Available" });
+  document.getElementById("bookTitle").value = "";
+  document.getElementById("bookAuthor").value = "";
+  displayBooks();
+  alert("Book added successfully!");
+}
+
+function deleteBook() {
+  const title = document.getElementById("deleteTitle").value.trim();
+  const index = books.findIndex(b => b.title.toLowerCase() === title.toLowerCase());
+  if (index !== -1) {
+    books.splice(index, 1);
+    displayBooks();
+    alert("Book deleted!");
+  } else {
+    alert("Book not found!");
+  }
+  document.getElementById("deleteTitle").value = "";
+}
+
+function borrowBook() {
+  const title = document.getElementById("borrowTitle").value.trim();
+  const book = books.find(b => b.title.toLowerCase() === title.toLowerCase());
+  if (book) {
+    if (book.status === "Borrowed") {
+      alert("This book is already borrowed!");
+    } else {
+      book.status = "Borrowed";
+      displayBooks();
+      alert("You have borrowed the book successfully!");
+    }
+  } else {
+    alert("Book not found!");
+  }
+  document.getElementById("borrowTitle").value = "";
+}
+
+function displayBooks() {
+  const tbody = document.querySelector("#bookTable tbody");
+  tbody.innerHTML = "";
+  books.forEach(book => {
+    const row = `<tr>
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td>${book.status}</td>
+    </tr>`;
+    tbody.innerHTML += row;
+  });
+}
+
+function searchBook() {
+  const input = document.getElementById("search").value.toLowerCase();
+  const rows = document.querySelectorAll("#bookTable tbody tr");
+  rows.forEach(row => {
+    const title = row.children[0].textContent.toLowerCase();
+    const author = row.children[1].textContent.toLowerCase();
+    row.style.display = (title.includes(input) || author.includes(input)) ? "" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
