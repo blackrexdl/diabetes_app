@@ -1,4 +1,6 @@
-#!/Users/shubhamsharma/Downloads/diabetes_app/venv/bin/python3.12
+#!/bin/sh
+'''exec' "/Users/shubhamsharma/Downloads/VS CODE/My-Project/diabetes_app/venv/bin/python3.12" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

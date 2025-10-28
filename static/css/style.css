@@ -1,0 +1,8 @@
+body{font-family:Arial,Helvetica,sans-serif;background:#f6f8fa;color:#222;}
+.container{max-width:680px;margin:30px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,0.06)}
+h1{text-align:center;color:#333}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+label{font-size:13px;color:#555}
+input{padding:8px;border:1px solid #ddd;border-radius:4px}
+button{display:block;margin:15px auto;padding:10px 20px;background:#2E86AB;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.result{margin-top:10px;padding:10px;background:#eef9f1;border-left:4px solid #2ecc71}
