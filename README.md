@@ -22,6 +22,19 @@ It’s lightweight, fast, and easy to deploy locally or online.
 
 ---
 
+## 🖼️ App Screenshots  
+
+### 🌐 Hosted Website – Home Page  
+![Hosted Website Home Page](https://cvws.icloud-content.com/B/AdoV1200kTRcDt2fk6lBPok2YbKnAXUoq8FipmrJtuXhWc6yfGHov3IK/Screenshot+2025-12-24+at+12.23.51%E2%80%AFPM.png)
+
+### 🧩 Web App Interface – Input Form  
+![Web App Interface](https://cvws.icloud-content.com/B/Ad8acdgHPy7x5ZDigh6ExRq7q8IRAW8Uy116vbVE4lXdszlD8ms8CMh_/Screenshot+2025-12-24+at+12.26.52%E2%80%AFPM.png)
+
+### 📊 Prediction Result Output  
+![Prediction Result](https://cvws.icloud-content.com/B/AaXJAMD8M0YhJZapQwaojgJjCPbkAfPID9WO76h4AXd6htPxVhzBoCid/Screenshot+2025-12-24+at+12.27.03%E2%80%AFPM.png)
+
+---
+
 ## 🧩 Tech Stack  
 | Component | Technology Used |
 |------------|----------------|
