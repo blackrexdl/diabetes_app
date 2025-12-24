@@ -31,7 +31,7 @@ It’s lightweight, fast, and easy to deploy locally or online.
 ![Web App Interface](https://drive.google.com/uc?export=view&id=1n_ncdLYFUjyIT1OlMkYc_ekHO6Fo4_5G)
 
 ### 📊 Prediction Result Output  
-![Prediction Result](https://drive.google.com/file/d/1iuRY8k2e2c8uZj8H5TBo0EitfoeKbk5D/view?usp=sharing)
+![Prediction Result](https://drive.google.com/uc?export=view&id=1n_ncdLYFUjyIT1OlMkYc_ekHO6Fo4_5G)
 
 ---
 
